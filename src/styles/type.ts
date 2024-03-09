@@ -1,5 +1,5 @@
 
-// TODO: Make type more specific
+// TODO: Make props type more specific
 export type BoxProps = {
     w?: string;
     h?: string;

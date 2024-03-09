@@ -1,9 +1,10 @@
 "use client";
 
 import styled from "styled-components";
+import CustomInput from "~/components/forms/CustomInput/CustomInput";
 import { COLOR } from "~/constants/color";
 
-export const EditCard = styled.input`
+export const EditCard = styled(CustomInput)`
   width: 100%;
   height: 100%;
   padding: 0;
@@ -24,14 +25,14 @@ export const EditCard = styled.input`
 `;
 
 export const SaveButton = styled.button`
-width: 64px;
-height: 36px;
-border-radius: 999px;
-border: 2px solid ${COLOR.BUTTERFLY_VIOLET};
-color: ${COLOR.SOLID_WHITE};
-background-color: ${COLOR.BUTTERFLY_VIOLET};
+  width: 64px;
+  height: 36px;
+  border-radius: 999px;
+  border: 2px solid ${COLOR.BUTTERFLY_VIOLET};
+  color: ${COLOR.SOLID_WHITE};
+  background-color: ${COLOR.BUTTERFLY_VIOLET};
 
-&:hover {
-  background-color: ${COLOR.LAVENDER_VIOLET};
-}
+  &:hover {
+    background-color: ${COLOR.LAVENDER_VIOLET};
+  }
 `;

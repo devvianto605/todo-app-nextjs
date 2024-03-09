@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from "react";
+import React, { type HTMLAttributes, type RefObject } from "react";
 import * as Styled from "./AddCard.styled";
 import BaseCard from "../BaseCard/BaseCard";
 

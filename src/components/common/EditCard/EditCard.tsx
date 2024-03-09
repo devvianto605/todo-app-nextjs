@@ -1,26 +1,27 @@
-import React from "react";
+import React, { type HTMLAttributes } from "react";
 import * as Styled from "./EditCard.styled";
 import BaseCard from "../BaseCard/BaseCard";
 
 export default function EditCard({
   label,
-  onClickSave,
   name,
+  onClickSave,
+  ...other
 }: {
   label: string;
-  onClickSave: () => void;
   name: string;
-}) {
+  onClickSave: () => void;
+} & HTMLAttributes<HTMLInputElement>) {
   return (
     <BaseCard pt="5px" pb="5px" pr="6px">
       <Styled.EditCard
-        id="example"
         name={name}
-        type="text"
         placeholder={label}
-        defaultValue={label}
+        {...other}
       />
-      <Styled.SaveButton onClick={onClickSave}>Save</Styled.SaveButton>
+      <Styled.SaveButton type="submit" onClick={onClickSave}>
+        Save
+      </Styled.SaveButton>
     </BaseCard>
   );
 }

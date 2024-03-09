@@ -1,13 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/padding-line-between-statements */
-
 import { useFormContext } from "react-hook-form";
-import { type HTMLAttributes } from "react";
+import { type RefObject, type HTMLAttributes } from "react";
 
 type CustomInputProps<Model> = {
   name: keyof Model | string;

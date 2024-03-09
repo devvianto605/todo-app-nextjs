@@ -1,64 +1,12 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
-import { type FilterDropdownType, useFilterDropdownContext } from "~/contexts/filterDropdownContext";
-import { COLOR } from "~/constants/color";
+import {
+  type FilterDropdownType,
+  useFilterDropdownContext,
+} from "~/contexts/filterDropdownContext";
 import { Box, Text } from "~/styles/globals.styled";
-
-type DropdownContentProps = {
-  isOpen: boolean;
-};
-
-type DropdownItemProps = {
-  isSelected: boolean;
-};
-
-const DropdownContainer = styled.div`
-  position: relative;
-  display: inline-block;
-`;
-
-const DropdownButton = styled.button`
-  display: flex;
-  min-width: 110px;
-  min-height: 29px;
-  background-color: ${COLOR.SOLID_WHITE};
-  color: ${COLOR.SOLID_BLACK};
-  padding: 7px 8px 7px 10px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-`;
-
-const DropdownContent = styled.div<DropdownContentProps>`
-  display: ${(props) => (props.isOpen ? "block" : "none")};
-  position: absolute;
-  background-color: ${COLOR.SOLID_WHITE};
-  min-width: 110px;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  z-index: 1;
-  margin-top: 5px;
-  padding: 10px 6px;
-`;
-
-const DropdownItem = styled.div<DropdownItemProps>`
-  font-size: 14px;
-  padding: 5px 6px 6.32px 8.66px;
-  cursor: pointer;
-  color: ${(props) => (props.isSelected ? COLOR.SOLID_WHITE : "")};
-  background-color: ${(props) =>
-    props.isSelected ? COLOR.BUTTERFLY_VIOLET : ""};
-  border-radius: 8px;
-  margin: 4px;
-
-  &:hover {
-    color: ${COLOR.SOLID_WHITE};
-    background-color: ${COLOR.LAVENDER_VIOLET};
-    border-radius: 8px;
-  }
-`;
+import { DropdownContainer, DropdownButton, DropdownContent, DropdownItem } from "./Dropdown.styled";
 
 const Dropdown = () => {
   const { setFilter } = useFilterDropdownContext();
@@ -74,15 +22,18 @@ const Dropdown = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
       setIsOpen(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -90,9 +41,9 @@ const Dropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleOptionClick = (option: typeof options[0]) => {
+  const handleOptionClick = (option: (typeof options)[0]) => {
     setSelectedOption(option);
-    setFilter(option.value as FilterDropdownType)
+    setFilter(option.value as FilterDropdownType);
     setIsOpen(false);
   };
 
@@ -106,7 +57,7 @@ const Dropdown = () => {
           alignItems="center"
         >
           <Text fontSize="13px">{selectedOption?.label}</Text>
-          {/* TODO: Manage svg better! */}
+          {/* TODO: Improve svg usage method */}
           <svg
             width="16px"
             height="16px"

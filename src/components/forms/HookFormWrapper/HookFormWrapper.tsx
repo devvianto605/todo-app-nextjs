@@ -14,7 +14,7 @@ type GenericOnSubmit = (data: Record<string, any>, event?: React.BaseSyntheticEv
 
 type HookFormWrapperProps<DataSchema extends Record<string, any>, Schema extends z.Schema<any, any>> = {
   schema: Schema;
-  onSubmit: (data: DataSchema, event?: React.BaseSyntheticEvent) => void;
+  onSubmit?: (data: DataSchema, event?: React.BaseSyntheticEvent) => void;
   children: React.ReactNode;
   defaultValues?: DefaultValues<DataSchema>;
   mode?: keyof ValidationMode;
