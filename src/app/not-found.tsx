@@ -1,6 +1,5 @@
 "use client";
 
-import { redirect } from "next/navigation";
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { COLOR } from "~/constants/color";
