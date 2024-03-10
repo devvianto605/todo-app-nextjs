@@ -1,5 +1,5 @@
 # To-do list app (NextJS)
-### dw-frontend-test
+(dw-frontend-test)
 
 ## Run
 ```npm i ``` >
