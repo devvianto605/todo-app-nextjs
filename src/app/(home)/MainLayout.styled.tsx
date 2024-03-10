@@ -9,5 +9,6 @@ export const mainSection = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  max-width: 100vw;
   background-color: ${COLOR.WILDSAND_GRAY};
 `;

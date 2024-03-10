@@ -13,9 +13,10 @@ import useGetTask from "~/hooks/task/useGetTask";
 import useMutateTask from "~/hooks/task/useMutateTask";
 import { addSchema, editSchema } from "~/schemas/task";
 import type { UseFormReturn } from "react-hook-form";
+import LoadingSpinner from "~/components/forms/LoadingSpinner/LoadingSpinner";
 
 export default function HomePageComponent() {
-  const { data: taskData } = useGetTask();
+  const { data: taskData, isLoading } = useGetTask();
   const { handleAddTask, handleEditTask, handleDeleteTask } = useMutateTask();
   const { filter } = useFilterDropdownContext();
   const [progressPercent, setProgressPercent] = useState<number | undefined>(0);
@@ -51,6 +52,10 @@ export default function HomePageComponent() {
     title: null,
     completed: false,
   };
+
+  if(isLoading){
+    return <LoadingSpinner/>
+  }
 
   return (
     <Box mt="61px" mb="63px">

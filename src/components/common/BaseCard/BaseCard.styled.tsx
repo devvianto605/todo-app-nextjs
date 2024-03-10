@@ -19,7 +19,8 @@ export const BaseCardContainer = styled(motion.div)<BaseCardContainerProps>`
   padding-top:  ${(props) => props.pt ?? `12px`};
   padding-bottom: ${(props) => props.pb ?? `12px`};
   min-height: 46px;
-  min-width: 518px;
+  width: 518px;
+  max-width: 90vw;
   border-radius: 9999px;
   background-color: ${COLOR.SOLID_WHITE};
   margin: 0;

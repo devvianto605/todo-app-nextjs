@@ -13,7 +13,8 @@ export const ProgressCardContainer = styled(motion.div)`
   padding-top: 18px;
   padding-bottom: 25px;
   min-height: 123px;
-  min-width: 518px;
+  width: 518px;
+  max-width: 90vw;
   border-radius: 20px;
   background-color: ${COLOR.NEWYORK_PINK};
   margin: 0;
