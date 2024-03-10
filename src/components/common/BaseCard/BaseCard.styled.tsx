@@ -9,6 +9,7 @@ export type BaseCardContainerProps = {
   pr?: string;
   pb?: string;
   pl?: string;
+  onClick?: () => void;
 };
 
 export const BaseCardContainer = styled(motion.div)<BaseCardContainerProps>`

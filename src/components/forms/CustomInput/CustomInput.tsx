@@ -2,11 +2,11 @@
 "use client";
 
 import { useFormContext } from "react-hook-form";
-import { type RefObject, type HTMLAttributes } from "react";
+import { type HTMLAttributes } from "react";
 
 type CustomInputProps<Model> = {
   name: keyof Model | string;
-  placeholder?:string;
+  placeholder?: string;
 } & HTMLAttributes<HTMLInputElement>;
 
 const CustomInput = <Model extends Record<string, any>>({
@@ -20,13 +20,13 @@ const CustomInput = <Model extends Record<string, any>>({
   } = useFormContext();
 
   return (
-    <input
-      disabled={isSubmitting}
-      placeholder={placeholder}
-      {...register(name as string)}
-      {...other}
-      type="text"
-    />
+      <input
+        disabled={isSubmitting}
+        placeholder={placeholder}
+        {...register(name as string)}
+        {...other}
+        type="text"
+      />
   );
 };
 

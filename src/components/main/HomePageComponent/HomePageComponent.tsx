@@ -53,8 +53,8 @@ export default function HomePageComponent() {
     completed: false,
   };
 
-  if(isLoading){
-    return <LoadingSpinner/>
+  if (isLoading) {
+    return <LoadingSpinner />;
   }
 
   return (
@@ -115,7 +115,11 @@ export default function HomePageComponent() {
             addFormRef?.current?.reset();
           }}
         >
-          <AddCard name="title" placeholder="Add your todo..." />
+          <AddCard
+            name="title"
+            placeholder="Add your todo..."
+            onClickCard={() => addFormRef.current?.setFocus("title")}
+          />
         </HookFormWrapper>
       </Box>
     </Box>
