@@ -1,6 +1,10 @@
-# Create T3 App
+# To-do list app (NextJS)
+## dw-frontend-test
 
-Feature:
+## Run
+```Test ```
+
+## Feature:
 - 100% Typescript
 - 100% CSS-in-JS using Styled Component following principles of Library UI as components should be prop passable and reusable eg. <div> and <p> as <Box> and <Text>
 - Framer motion for smooth user experience 
