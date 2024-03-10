@@ -2,8 +2,11 @@
 ### dw-frontend-test
 
 ## Run
-```npm i ```
+```npm i ``` >
 ``` npm run dev ```
+
+## Change API Endpoint
+.env > ```NEXT_PUBLIC_BASE_API_URL=<API_ENDPOINT>```
 
 ## Feature:
 - 100% Typescript
@@ -17,4 +20,4 @@
 - Responsive
 - Setup Eslint rules / Prettier for better readability
 - Setup Husky for pre-commit / commit-lint to run lint test before commit
-- Still required to run local apis as the direction suggested
+- Still required to run local apis as the direction suggested or direct to exteral api endpoint by add NEXT_PUBLIC_BASE_API_URL to .env
