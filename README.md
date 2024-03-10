@@ -1,12 +1,6 @@
 # To-do list app (NextJS)
 (dw-frontend-test)
-
-## Run
-```npm i ``` >
-``` npm run dev ```
-
-## Change API Endpoint
-.env > ```NEXT_PUBLIC_BASE_API_URL=<API_ENDPOINT>```
+![Screenshot_11-3-2024_02751_localhost](https://github.com/devvianto605/dw-frontend-test/assets/101519510/8175f498-b693-4e3e-b92d-d208ab916636)
 
 ## Feature:
 - 100% Typescript
@@ -21,3 +15,11 @@
 - Setup Eslint rules / Prettier for better readability
 - Setup Husky for pre-commit / commit-lint to run lint test before commit
 - Still required to run local apis as the direction suggested or direct to exteral api endpoint by add NEXT_PUBLIC_BASE_API_URL to .env
+
+## Run
+```npm i ``` >
+``` npm run dev ```
+
+## Change API Endpoint
+.env > ```NEXT_PUBLIC_BASE_API_URL=<API_ENDPOINT>```
+
