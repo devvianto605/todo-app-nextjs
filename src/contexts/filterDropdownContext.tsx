@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, {
   createContext,
@@ -14,19 +14,25 @@ type FilterDropdownContextType = {
   setFilter: (filter: FilterDropdownType) => void;
 };
 
-const FilterDropdownContext = createContext<FilterDropdownContextType | undefined>(undefined);
+const FilterDropdownContext = createContext<
+  FilterDropdownContextType | undefined
+>(undefined);
 
 export const useFilterDropdownContext = (): FilterDropdownContextType => {
   const context = useContext(FilterDropdownContext);
+
   if (!context) {
-    throw new Error("useFilterDropdownContext must be used within a FilterDropdownProvider");
+    throw new Error(
+      "useFilterDropdownContext must be used within a FilterDropdownProvider",
+    );
   }
+
   return context;
 };
 
-interface FilterProviderProps {
+type FilterProviderProps = {
   children: ReactNode;
-}
+};
 export const FilterDropdownProvider: React.FC<FilterProviderProps> = ({
   children,
 }) => {

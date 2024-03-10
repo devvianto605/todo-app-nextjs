@@ -20,13 +20,13 @@ const CustomInput = <Model extends Record<string, any>>({
   } = useFormContext();
 
   return (
-      <input
-        disabled={isSubmitting}
-        placeholder={placeholder}
-        {...register(name as string)}
-        {...other}
-        type="text"
-      />
+    <input
+      disabled={isSubmitting}
+      placeholder={placeholder}
+      {...register(name as string)}
+      {...other}
+      type="text"
+    />
   );
 };
 

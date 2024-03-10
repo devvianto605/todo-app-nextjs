@@ -1,3 +1,6 @@
+/* eslint-disable no-confusing-arrow */
+/* eslint-disable arrow-spacing */
+/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import styled from "styled-components";
 import { type StyledCheckboxProps } from "./type";
@@ -40,9 +43,9 @@ export const CheckBox = styled.div<StyledCheckboxProps>`
     content: "";
     display: ${(props) => (props.checked ? "flex" : "none")};
     position: absolute;
-    width: 14px; 
-    height: 14px; 
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23${(props) => encodeURIComponent("#FFF".replace("#", ""))}"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>');
+    width: 14px;
+    height: 14px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23${(props) =>encodeURIComponent("#FFF".replace("#", ""))}"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

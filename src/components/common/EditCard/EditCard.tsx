@@ -13,12 +13,8 @@ export default function EditCard({
   onClickSave: () => void;
 } & HTMLAttributes<HTMLInputElement>) {
   return (
-    <BaseCard pt="5px" pb="5px" pr="6px">
-      <Styled.EditCard
-        name={name}
-        placeholder={label}
-        {...other}
-      />
+    <BaseCard pb="5px" pr="6px" pt="5px">
+      <Styled.EditCard name={name} placeholder={label} {...other} />
       <Styled.SaveButton type="submit" onClick={onClickSave}>
         Save
       </Styled.SaveButton>

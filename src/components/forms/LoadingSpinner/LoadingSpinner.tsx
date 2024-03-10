@@ -41,14 +41,14 @@ const SpinnerDot = styled.div`
 
 const LoadingSpinner = () => {
   return (
-    <>
+    <React.Fragment>
       <SpinnerContainer>
         <SpinnerDot />
         <SpinnerDot />
         <SpinnerDot />
       </SpinnerContainer>
       <Text>Loading ...</Text>
-    </>
+    </React.Fragment>
   );
 };
 

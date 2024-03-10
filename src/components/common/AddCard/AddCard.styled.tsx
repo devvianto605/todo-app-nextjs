@@ -16,9 +16,10 @@ export const AddCard = styled(CustomInput)`
   &::placeholder {
     color: ${COLOR.SILVER_GRAY};
     opacity: 1; /* Firefox */
-  };
+  }
 
-  &::-ms-input-placeholder { /* Edge 12 -18 */
+  &::-ms-input-placeholder {
+    /* Edge 12 -18 */
     color: ${COLOR.SILVER_GRAY};
   }
-`
+`;

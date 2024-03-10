@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 export const GlobalStyle = createGlobalStyle`
  html,
 body {
+  background-color: ${COLOR.WILDSAND_GRAY};
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,

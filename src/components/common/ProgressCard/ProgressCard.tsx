@@ -17,7 +17,7 @@ export default function ProgressCard({
       exit={{ opacity: 0, y: 20 }}
       initial={{ opacity: 0, y: 20 }}
     >
-      <Text fontSize="28px" fontWeight={500} color={COLOR.SOLID_WHITE}>
+      <Text color={COLOR.SOLID_WHITE} fontSize="28px" fontWeight={500}>
         Progress
       </Text>
       <ProgressBar percent={percent} />

@@ -25,17 +25,17 @@ export default function TaskCard({
   return isEdit ? (
     <EditCard
       label={label}
-      onClickSave={handleClickSave}
       name={name}
+      onClickSave={handleClickSave}
       {...other}
     />
   ) : (
     <DisplayCard
       isChecked={isChecked}
       label={label}
-      onClickEdit={handleClickEdit}
-      onClickDelete={onClickDelete}
       onChecked={onChecked}
+      onClickDelete={onClickDelete}
+      onClickEdit={handleClickEdit}
     />
   );
 }

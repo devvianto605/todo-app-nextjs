@@ -1,3 +1,3 @@
 export const QUERY_KEY = {
-    GET_TASK: 'getTask'
-}
+  GET_TASK: "getTask",
+};

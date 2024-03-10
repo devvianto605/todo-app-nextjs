@@ -15,10 +15,10 @@ export type BaseCardContainerProps = {
 export const BaseCardContainer = styled(motion.div)<BaseCardContainerProps>`
   display: flex;
   align-items: center;
-  padding-left: ${(props) => props.pl ?? `20px`};
-  padding-right: ${(props) => props.pr ?? `20px`};
-  padding-top:  ${(props) => props.pt ?? `12px`};
-  padding-bottom: ${(props) => props.pb ?? `12px`};
+  padding-left: ${(props) => props.pl ?? "20px"};
+  padding-right: ${(props) => props.pr ?? "20px"};
+  padding-top: ${(props) => props.pt ?? "12px"};
+  padding-bottom: ${(props) => props.pb ?? "12px"};
   min-height: 46px;
   width: 518px;
   max-width: 90vw;

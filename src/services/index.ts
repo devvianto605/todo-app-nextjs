@@ -1,1 +1,1 @@
-export * as ENDPOINT from './endpoints'
+export * as ENDPOINT from "./endpoints";

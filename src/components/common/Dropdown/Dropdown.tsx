@@ -6,7 +6,12 @@ import {
   useFilterDropdownContext,
 } from "~/contexts/filterDropdownContext";
 import { Box, Text } from "~/styles/globals.styled";
-import { DropdownContainer, DropdownButton, DropdownContent, DropdownItem } from "./Dropdown.styled";
+import {
+  DropdownContainer,
+  DropdownButton,
+  DropdownContent,
+  DropdownItem,
+} from "./Dropdown.styled";
 
 const Dropdown = () => {
   const { setFilter } = useFilterDropdownContext();
@@ -32,6 +37,7 @@ const Dropdown = () => {
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -51,21 +57,21 @@ const Dropdown = () => {
     <DropdownContainer ref={dropdownRef}>
       <DropdownButton onClick={toggleDropdown}>
         <Box
-          w="100%"
+          alignItems="center"
           display="flex"
           justifyContent="space-between"
-          alignItems="center"
+          w="100%"
         >
           <Text fontSize="13px">{selectedOption?.label}</Text>
           {/* TODO: Improve svg usage method */}
           <svg
-            width="16px"
             height="16px"
             viewBox="0 0 24 24"
+            width="16px"
             xmlns="http://www.w3.org/2000/svg"
           >
             <g>
-              <path fill="none" d="M0 0h24v24H0z" />
+              <path d="M0 0h24v24H0z" fill="none" />
               <path d="M12 15l-4.243-4.243 1.415-1.414L12 12.172l2.828-2.829 1.415 1.414z" />
             </g>
           </svg>

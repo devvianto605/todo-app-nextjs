@@ -2,7 +2,12 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { COLOR } from "~/constants/color";
-import { DropdownContainer, DropdownButton, DropdownContent, DropdownItem } from "./MoreButton.styled";
+import {
+  DropdownContainer,
+  DropdownButton,
+  DropdownContent,
+  DropdownItem,
+} from "./MoreButton.styled";
 
 const MoreButton = ({
   onClickEdit,
@@ -11,7 +16,6 @@ const MoreButton = ({
   onClickEdit: () => void;
   onClickDelete: () => void;
 }) => {
-
   const options = [
     {
       value: "edit",
@@ -41,6 +45,7 @@ const MoreButton = ({
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -59,32 +64,32 @@ const MoreButton = ({
       <DropdownButton onClick={toggleDropdown}>
         {/* TODO: Improve svg usage method */}
         <svg
-          width="24px"
+          fill="none"
           height="24px"
           viewBox="0 0 24 24"
-          fill="none"
+          width="24px"
           xmlns="http://www.w3.org/2000/svg"
         >
           <circle
             cx="18"
             cy="12"
+            fill={COLOR.SANTAS_GRAY}
             r="1.5"
             transform="rotate(90 18 12)"
-            fill={COLOR.SANTAS_GRAY}
           />
           <circle
             cx="12"
             cy="12"
+            fill={COLOR.SANTAS_GRAY}
             r="1.5"
             transform="rotate(90 12 12)"
-            fill={COLOR.SANTAS_GRAY}
           />
           <circle
             cx="6"
             cy="12"
+            fill={COLOR.SANTAS_GRAY}
             r="1.5"
             transform="rotate(90 6 12)"
-            fill={COLOR.SANTAS_GRAY}
           />
         </svg>
       </DropdownButton>

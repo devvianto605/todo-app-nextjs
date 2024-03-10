@@ -25,9 +25,7 @@ export default function HomePageComponent() {
   const addFormRef = useRef<UseFormReturn>(null);
 
   useEffect(() => {
-    const newCompletedTask = taskData?.filter(
-      (task) => task.completed === true
-    ).length;
+    const newCompletedTask = taskData?.filter((task) => task.completed).length;
     setCompletedTask(newCompletedTask);
   }, [taskData]);
 
@@ -39,13 +37,14 @@ export default function HomePageComponent() {
 
   const filteredTaskData = () => {
     if (filter === "done") {
-      return taskData?.filter((task) => task.completed === true);
+      return taskData?.filter((task) => task.completed);
     }
+
     if (filter === "undone") {
-      return taskData?.filter((task) => task.completed === false);
-    } else {
-      return taskData;
+      return taskData?.filter((task) => !task.completed);
     }
+
+    return taskData;
   };
 
   const addFormDefaultValue = {
@@ -58,22 +57,22 @@ export default function HomePageComponent() {
   }
 
   return (
-    <Box mt="61px" mb="63px">
+    <Box mb="63px" mt="61px">
       <ProgressCard
-        percent={progressPercent ?? 0}
         completed={completedTask ?? 0}
+        percent={progressPercent ?? 0}
       />
-      <Box mt="32px" display="flex" flexDir="column" gap="16px">
+      <Box display="flex" flexDir="column" gap="16px" mt="32px">
         <Box
-          display="flex"
-          w="100%"
-          h="100%"
-          justifyContent="space-between"
           animate={{ opacity: 1, y: 0 }}
+          display="flex"
           exit={{ opacity: 0, y: 20 }}
+          h="100%"
           initial={{ opacity: 0, y: 20 }}
+          justifyContent="space-between"
+          w="100%"
         >
-          <Text fontSize="24px" fontWeight={500} color={COLOR.SOLID_BLACK}>
+          <Text color={COLOR.SOLID_BLACK} fontSize="24px" fontWeight={500}>
             Task
           </Text>
           <Dropdown />
@@ -81,8 +80,8 @@ export default function HomePageComponent() {
         {filteredTaskData()?.map((task, idx) => (
           <HookFormWrapper
             key={`task-card-form-${idx}`}
-            schema={editSchema}
             defaultValues={task}
+            schema={editSchema}
             onSubmit={(formVal) =>
               handleEditTask.mutate({
                 body: {
@@ -94,22 +93,22 @@ export default function HomePageComponent() {
           >
             <TaskCard
               isChecked={task.completed}
-              name="title"
               label={task.title}
-              onClickDelete={() => handleDeleteTask.mutate({ taskId: task.id })}
+              name="title"
               onChecked={() =>
                 handleEditTask.mutate({
                   body: { completed: !task.completed },
                   taskId: task.id,
                 })
               }
+              onClickDelete={() => handleDeleteTask.mutate({ taskId: task.id })}
             />
           </HookFormWrapper>
         ))}
         <HookFormWrapper
-          schema={addSchema}
-          defaultValues={addFormDefaultValue}
           ref={addFormRef}
+          defaultValues={addFormDefaultValue}
+          schema={addSchema}
           onSubmit={(formVal) => {
             handleAddTask.mutate(formVal);
             addFormRef?.current?.reset();

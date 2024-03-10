@@ -1,3 +1,3 @@
-export type ProgressBarProps ={
-    percent ?: number;
-}
+export type ProgressBarProps = {
+  percent?: number;
+};

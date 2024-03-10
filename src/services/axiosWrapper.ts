@@ -1,8 +1,7 @@
-/* eslint-disable max-depth */
-/* eslint-disable complexity */
-import type { AxiosRequestConfig, AxiosResponse, Method } from 'axios';
+/* eslint-disable no-useless-catch */
+import type { AxiosRequestConfig, AxiosResponse, Method } from "axios";
 
-import axios from 'axios';
+import axios from "axios";
 // import axios, { HttpStatusCode } from 'axios';
 // import { getSession, signOut } from 'next-auth/react';
 // import type { Session } from '@types';
@@ -24,17 +23,20 @@ const TIMEOUT = {
   PRD: 30000,
 };
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL ?? 'http://localhost:3001';
+const BASE_URL =
+  process.env.NEXT_PUBLIC_BASE_API_URL ?? "http://localhost:3001";
 
-const timeout = process.env.NODE_ENV === 'development' ? TIMEOUT.DEV : TIMEOUT.PRD;
+const timeout =
+  process.env.NODE_ENV === "development" ? TIMEOUT.DEV : TIMEOUT.PRD;
 
-export default async function axiosWrapper<TRequestBody extends Record<string, unknown> | FormData, TResponse>(
-  config: AxiosService<TRequestBody>,
-): Promise<AxiosResponse<TResponse>> {
+export default async function axiosWrapper<
+  TRequestBody extends Record<string, unknown> | FormData,
+  TResponse,
+>(config: AxiosService<TRequestBody>): Promise<AxiosResponse<TResponse>> {
   // const session = (await getSession()) as Session;
 
   try {
-    const { url, method = 'GET', headers, body, params } = config;
+    const { url, method = "GET", headers, body, params } = config;
 
     // const token = session?.user?.idToken;
 

@@ -1,15 +1,15 @@
+/* eslint-disable no-confusing-arrow */
 import styled from "styled-components";
 import { COLOR } from "~/constants/color";
 
 type DropdownContentProps = {
-    isOpen: boolean;
-  };
-  
-  type DropdownItemProps = {
-    isSelected: boolean;
-  };
+  isOpen: boolean;
+};
 
-  
+type DropdownItemProps = {
+  isSelected: boolean;
+};
+
 export const DropdownContainer = styled.div`
   position: relative;
   display: inline-block;

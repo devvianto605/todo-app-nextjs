@@ -2,10 +2,9 @@ import styled from "styled-components";
 import { COLOR } from "~/constants/color";
 
 type DropdownContentProps = {
-    isOpen: boolean;
-  };
+  isOpen: boolean;
+};
 
-  
 export const DropdownContainer = styled.div`
   position: relative;
   display: inline-block;

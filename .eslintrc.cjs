@@ -1,37 +1,48 @@
-/** @type {import("eslint").Linter.Config} */
-const config = {
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    project: true,
-  },
-  plugins: ["@typescript-eslint"],
-  extends: [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended-type-checked",
-    "plugin:@typescript-eslint/stylistic-type-checked",
-  ],
-  rules: {
-    // These opinionated rules are enabled in stylistic-type-checked above.
-    // Feel free to reconfigure them to your own preference.
-    "@typescript-eslint/array-type": "off",
-    "@typescript-eslint/consistent-type-definitions": "off",
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-require-imports */
+const baseRules = require("./rules/base.cjs");
+const reactRules = require("./rules/react.cjs");
+const importRules = require("./rules/import.cjs");
+const typescriptRule = require("./rules/typescript.cjs");
 
-    "@typescript-eslint/consistent-type-imports": [
-      "warn",
-      {
-        prefer: "type-imports",
-        fixStyle: "inline-type-imports",
-      },
-    ],
-    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
-    "@typescript-eslint/require-await": "off",
-    "@typescript-eslint/no-misused-promises": [
-      "error",
-      {
-        checksVoidReturn: { attributes: false },
-      },
-    ],
+module.exports = {
+  parser: "@typescript-eslint/parser",
+  env: {
+    browser: true,
+    node: true,
+    jest: true,
+  },
+  plugins: ["react", "react-hooks", "@typescript-eslint", "prettier", "import", "jest"],
+  extends: [
+    "next",
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:jest/recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:eslint-comments/recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+  rules: {
+    ...baseRules,
+    ...importRules,
+    ...typescriptRule,
+    ...reactRules,
+  },
+  parserOptions: {
+    presets: [require.resolve("next/babel")],
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: "./tsconfig.json",
   },
 };
-
-module.exports = config;
