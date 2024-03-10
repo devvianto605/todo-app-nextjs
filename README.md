@@ -22,6 +22,6 @@
 ```npm i ``` >
 ``` npm run dev ```
 
-## Change API Endpoint
+## Change API Base Endpoint (Origin)
 .env > ```NEXT_PUBLIC_BASE_API_URL=<API_ENDPOINT>```
 
