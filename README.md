@@ -3,7 +3,7 @@
 
 ## Run
 ```npm i ```
-`` npm run dev ```
+``` npm run dev ```
 
 ## Feature:
 - 100% Typescript
