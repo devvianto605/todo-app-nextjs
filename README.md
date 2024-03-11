@@ -1,29 +1,27 @@
-# Create T3 App
+# To-do list app (NextJS)
+(dw-frontend-test)
+| Desktop View  | Mobile View |
+| ------------- | ------------- |
+| ![Screenshot_11-3-2024_02751_localhost](https://github.com/devvianto605/dw-frontend-test/assets/101519510/8175f498-b693-4e3e-b92d-d208ab916636) | ![Screenshot_11-3-2024_05521_localhost](https://github.com/devvianto605/dw-frontend-test/assets/101519510/9610ef53-7cc9-4709-bda6-51b963224bdc) |
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Feature:
+- 100% Typescript
+- 100% CSS-in-JS using Styled Component following principles of Library UI as components should be prop passable and reusable eg. <div> and <p> as <Box> and <Text>
+- Framer motion for smooth user experience 
+- NextJS (app router) for better performance and project structure
+- contextAPI to manage dropdown filter state to be used in another component
+- Hooks (useRef for element ref, useState for internal state management ,and custom hook for data fetching services)
+- React Hook Form and Zod for form management and data validation that passed to api invoker
+- React query to manage CRUD api and invalidate obsoleted data
+- Responsive
+- Setup Eslint rules / Prettier for better readability
+- Setup Husky for pre-commit / commit-lint to run lint test before commit
+- Still required to run local apis as the direction suggested or direct to exteral api endpoint by add NEXT_PUBLIC_BASE_API_URL to .env
 
-## What's next? How do I make an app with this?
+## Run
+```npm i ``` >
+``` npm run dev ```
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Change API Base Endpoint (Origin)
+.env > ```NEXT_PUBLIC_BASE_API_URL=<API_ENDPOINT>```
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
-
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
-
-## Learn More
-
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
