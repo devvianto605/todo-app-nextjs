@@ -1,1 +1,3 @@
-export { default as HomePageComponent } from "./main/HomePageComponent/HomePageComponent";
+export * from "./common";
+export * from "./forms";
+export * from "./main";

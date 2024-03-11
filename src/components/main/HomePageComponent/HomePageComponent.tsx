@@ -1,23 +1,30 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import ProgressCard from "../../common/ProgressCard/ProgressCard";
+import {
+  ProgressCard,
+  AddCard,
+  TaskCard,
+  Dropdown,
+  HookFormWrapper,
+  LoadingOverlaySpinner,
+} from "~/components";
 import { Box, Text } from "~/styles/globals.styled";
 import { COLOR } from "~/constants/color";
-import AddCard from "../../common/AddCard/AddCard";
-import TaskCard from "../../common/TaskCard/TaskCard";
-import Dropdown from "../../common/Dropdown/Dropdown";
-import { useFilterDropdownContext } from "../../../contexts/filterDropdownContext";
-import HookFormWrapper from "../../forms/HookFormWrapper/HookFormWrapper";
+import { useFilterDropdownContext } from "~/contexts/filterDropdownContext";
 import useGetTask from "~/hooks/task/useGetTask";
 import useMutateTask from "~/hooks/task/useMutateTask";
 import { addSchema, editSchema } from "~/schemas/task";
 import type { UseFormReturn } from "react-hook-form";
-import LoadingSpinner from "~/components/forms/LoadingSpinner/LoadingSpinner";
 
 export default function HomePageComponent() {
-  const { data: taskData, isLoading } = useGetTask();
-  const { handleAddTask, handleEditTask, handleDeleteTask } = useMutateTask();
+  const { data: taskData, isFetching: isGetTaskFetching } = useGetTask();
+  const {
+    handleAddTask,
+    handleEditTask,
+    handleDeleteTask,
+    isLoading: isMutateTaskLoading,
+  } = useMutateTask();
   const { filter } = useFilterDropdownContext();
   const [progressPercent, setProgressPercent] = useState<number | undefined>(0);
   const [completedTask, setCompletedTask] = useState<number | undefined>(0);
@@ -52,12 +59,10 @@ export default function HomePageComponent() {
     completed: false,
   };
 
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
-
   return (
     <Box mb="63px" mt="61px">
+      {(isGetTaskFetching || isMutateTaskLoading) && <LoadingOverlaySpinner />}
+
       <ProgressCard
         completed={completedTask ?? 0}
         percent={progressPercent ?? 0}

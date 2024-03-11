@@ -26,5 +26,10 @@ export default function useMutateTask() {
       await queryClient.invalidateQueries({ queryKey: [QUERY_KEY.GET_TASK] }),
   });
 
-  return { handleAddTask, handleEditTask, handleDeleteTask };
+  const isLoading =
+    handleAddTask.isPending ||
+    handleDeleteTask.isPending ||
+    handleEditTask.isPending;
+
+  return { handleAddTask, handleEditTask, handleDeleteTask, isLoading };
 }
